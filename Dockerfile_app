@@ -1,0 +1,22 @@
+# Dockerfile_app
+FROM nginx:alpine
+
+# Copiez une page HTML simple
+RUN echo '<!DOCTYPE html> \
+<html> \
+<head> \
+    <title>Terraform IaC Deployment</title> \
+    <style> \
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 100px; } \
+        h1 { color: #2c3e00; } \
+    </style> \
+</head> \
+<body> \
+    <h1> Application Deployed via Terraform IaC!</h1> \
+    <p>TP Infrastructure as Code - Partie I</p> \
+</body> \
+</html>' > /usr/share/nginx/html/index.html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
